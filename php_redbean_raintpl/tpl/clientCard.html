@@ -1,0 +1,41 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+
+<tt>Edytuj istniejaceg Klienta</b></tt>
+<form action="" method="post">
+    <fieldset style='wclassth: 450px;'>
+        <legend>Zmien dane klienta</legend>
+        <input id='id' type="text" name='id' value={$clientData.id} hidden="true"/>
+        
+        <label for='imie'>imie:</label>
+        <input id='imie' type="text" name='imie' value={$clientData.imie} />
+
+        <br><label for='nazwisko'>nazwisko:</label>
+        <input id='nazwisko' type="text" name='nazwisko' value={$clientData.nazwisko} />
+
+        <br><label for='wiek'>wiek:</label>
+        <input id='wiek' type="text" name='wiek' value={$clientData.wiek} />
+
+        <br><label for='pesel'>pesel:</label>
+        <input id='pesel' type="text" name='pesel' value={$clientData.pesel} />
+
+        <br><label for='numer_telefonu'>numer_telefonu:</label>
+        <input id='numer_telefonu' type="text" name='numer_telefonu' value={$clientData.numer_telefonu} />
+
+        <br><label for='adres'>adres:</label>
+        <input id='adres' type="text" name='adres' value={$clientData.adres} />
+        
+
+    </fieldset>
+    <br><input type='submit' name='dodaj' value='Zmień' />
+</form>
+
+
+
+
+{*include external pattern sub-pages *}
+{include="footer"}
+{*eof*}

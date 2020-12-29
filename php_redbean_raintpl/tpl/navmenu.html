@@ -1,0 +1,19 @@
+﻿<!-- Generowanie menu nawigacyjnego. --> 
+<hr/>
+<a href="index.php">Strona główna</a> 
+<a href="dodajklienta.php"> <b>Nowy klient</b></a>
+<!--<a href="dodajpojazd.php"> <b>Nowy pojazd</b></a>-->
+<!--<a href="dodajnaprawe.php"> <b>Nowa naprawa</b></a>-->
+<a href="raporty.php"> Raporty</a>   
+<hr/>
+{*TRYB DEBUG*}	
+
+{*SUKCES MESSAGE*}
+{if condition="$message"}
+<message>{$message}</message>
+{/if}
+{*ERROR MEASSAGE*}
+{if condition="$error"}
+<error_message>{$error}</error_message>
+{/if}
+<hr/>

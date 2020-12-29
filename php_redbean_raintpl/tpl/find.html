@@ -1,0 +1,30 @@
+{*szukajka*}
+{if condition="isset($_POST['szukaj'])"}
+    {if condition="count($findsClient)>0"}
+<h3>Znaleziono:</h3>
+<div class="table">
+    <div class="row">
+        <div class="cell">id</div>
+        <div class="cell">imie</div>
+        <div class="cell">nazwisko</div>
+        <div class="cell">wiek</div>
+        <div class="cell">utworzono</div>
+        <div class="cell">maszyny</div>
+    </div>	
+    {loop="$findsClient"}
+    <div class="row_ok">
+        <div class="cell"><a href="./?id={$value.id}">{$value.id}</a></div>
+        <div class="cell">{$value.imie}  </div>
+        <div class="cell">{$value.nazwisko}  </div>
+        <div class="cell">{$value.wiek}  </div>
+        <div class="cell">{$value.utworzono}  </div>
+        <div class="cell"><a href="./maszyny.php?klientId={$value.id}">Pokaz maszyny</a></div>
+    </div>	
+    {/loop}
+    {* end table div *}
+</div>
+    {else}
+<warning_message>Brak klienta o okreslnych kryteriach wyszukiwania</warning_message>
+    {/if}
+{*PROBOWANO SZUKAC*}
+{/if}

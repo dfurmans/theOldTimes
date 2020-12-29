@@ -1,0 +1,72 @@
+nota 18.05.2014
+----------------
+
+new req:
+KLIENT
+========
+usuwamy
+wiek - do usuniecia
+
+dodajemy - na liscie
+1. numer telefonu 
+
+w szczegolach klienta
+
+adres
+PESEL
+
+podczas dodania nowego klienta mamy mozliwosc wydrukowania pokwitowania:
+
+
+POKWITOWANIE/POTWIERDZENIE ZDANIA MOTOCYKLA NA WARSZTACIE
+=============
+- podczas gdy klient zostawia motocykl drukujemy pokwitowanie
+dokument (2 kopie) KTORY zawiera:
+Dane wlasciciela (klienta) - wszystkie
+
+klauzule - (Dominik dośle) 
+
+PODPIS ZDAJACEGO / PRZYJMUJACEGO
+PIECZATKA
+DATA
+===============
+Robimy Karta klienta
+mozliwosc drukowania pokwitowania
+edycja danych klieta
+
+
+
+NAPRAWA
+===========
+- czy zaplacono  - jeżeli klient nie zaplacił za jaką kolwiek naprawe to oznaczamy go (czerwona kropa)
+- przebieg km 
+- numer rejestracyjny
+- kwota 
+
+TABELA DO DODAWANIA LISTY OPISOW NAPRAWY << sa to pozycje naprawy 
+NAZWA | KWOTA | NOTATKA  
+-------------------------
+swiec	12		brak gwintu / 
+---------------------------
+|DODAJ kolejny|
+
+
+SEGREGUJEMY NAPRAWY PO DACIE NAPRAWY WG NAJNOWSZEJ NARPWY 
+
+
+RAPORT
+
+- LICZA NAPRAWA ZA DANYCH MIESCIA DLA WSZYSTKICH KLIENTOW + WARTOSC NAPRA
+
+
+powrot do ostatnio przegladajej strony  -- implemecjacja
+
+
+10.06.2014
+
+I. Pozycje- naprawy - dodawnie nwoej pozycji naprawy do danej naprawy 
+II. Raport - przyciącia - możliwość durkowania + pozycje naprawy (ewentualnie)
+III - bład w w edycji pojazdy
+IV -przechodzenie pomiedzy stronami
+V- Wszystkiwarce dodanie motocykla
+

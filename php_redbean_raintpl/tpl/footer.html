@@ -1,0 +1,19 @@
+ <hr/>
+ 
+ <p class="footer">Aplikacja została uszyta na miarę dla 
+ DM - Dominik Motocykle
+ Konstantynów Łódzki
+ Tuwima 14
+ 
+ </p>
+ <p><sup>FurmanS 2014</sup></p>
+
+ 
+{loop="$dataBaseTable"}
+<ul>{$key} = {$value}
+    <li>{function="print_r(R::inspect($value))"}</li>
+</ul>
+{/loop}
+ 
+</body>
+</html>

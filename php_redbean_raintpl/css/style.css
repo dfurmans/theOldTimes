@@ -1,0 +1,103 @@
+/* CSS Document */
+
+body {width: 960px; margin: 0 auto; padding: 25px 0 0; background: free; color: #000; font: 12px/20px Arial, Tahoma, Helvetica, sans-serif;}
+a{ color: #333; }
+a:hover{ color: #999; }
+img{border:0px;}
+
+#logo {float: left; width: 50%;}
+#content{ height: 100%;padding:20px; }
+#footer{background: url('img/bottom.gif');}
+#footer a{color:#ccff00;}
+
+.layout{background:#fff; padding:20px;margin-bottom:30px;}
+code{ display:block;font:12px monospace; background: #e9ffe9;padding: 15px; border: solid 1px #ccddcc; margin-bottom:10px;}
+tt{ display:block; font:12px monospace; background: #EB6C09; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; }
+
+message{ display:block; font:14px monospace; background: #BBE49C; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; }
+header{ display:block; font:14px monospace; background: #F3FFF3; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; }
+error_message{ display:block; font:14px monospace; background: #EC4F56; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; }
+warning_message{ display:block; font:14px monospace; background: #F5E5C5; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; font-weight: bold;}
+info_message{ display:block; font:14px monospace; background: #86DBF4; padding: 15px; border: solid 1px #ccdddd; margin-bottom:0 0 10px 0; font-weight: bold;}
+
+.color1{background:#eeeeff;}
+.color2{background:#ddddee;}
+
+
+
+
+div.table {
+display: table;
+margin-top: 10px;   
+margin-bottom: 100px;
+}       
+
+div.row {                
+ display: table-row;
+ background: white;
+ }               
+
+
+div.thead {                
+ display: table-row;
+ background: #EB6C09;
+ }               
+
+div.cell {          
+ display: table-cell;
+ border: solid 1px #CED2D5;
+ padding-right: 64px;
+ padding-left: 1px;
+ }
+
+div.row_ok {          
+ display: table-row;
+ background: #9DEB9D ;
+
+ }     
+
+ //context menu BEGIN 
+.items
+{
+  list-style: none;      // For removing the list styling.
+  padding: 0px;
+  margin: 5px 0 0 5px;
+  font-size: 20px;       // setting fonts 
+}
+.cntnr
+{
+  display: none;        // initially hidden. 
+  position: fixed;       
+  border: 1px solid grey;
+  width: 150px;
+  background-color: red;
+    // Context menu background
+  box-shadow: 2px 2px 1px grey;  //adding small drop shadow
+}
+li
+{
+  border-bottom: 1px solid grey;  //for separating bottom border
+  border-bottom-style: dotted;
+}
+
+.items :hover                       //to add hover effect.
+{
+  background: grey;     
+  color: white;
+}
+#menu { border: 1px solid black; background-color: white; color: black; text-align: center; padding: 10px; width: 100px; display: none; }
+
+
+
+
+.autotooltipcontainer .autotooltip{
+    position: absolute;
+    padding: 16px;
+}
+
+.autotooltipcontainer .autotooltip-content{
+    background-color: #f0f0f0;
+    border: 1px solid gray;
+    padding: 4px;
+}
+//CONTEXT MENU END

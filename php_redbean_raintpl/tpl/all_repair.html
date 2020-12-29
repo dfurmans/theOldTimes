@@ -1,0 +1,125 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+
+<h2>Klient: {$clientDetails.imie} - {$clientDetails.nazwisko}</h2>
+<hr>
+
+<div class="thead">
+    <div class="cell">identyfikator systemowy klientam</div>
+    <div class="cell">imie</div>
+    <div class="cell">nazwisko</div>
+    <div class="cell">wiek</div>
+    <div class="cell">data utworzenia</div>
+    <div class="cell">maszyny</div>
+</div>	
+
+<div class="cell"><a href="./kartaKlienta.php?id={$clientDetails.id}">{$clientDetails.id}</a></div>
+<div class="cell">{$clientDetails.imie}  </div>
+<div class="cell">{$clientDetails.nazwisko}  </div>
+<div class="cell">{$clientDetails.wiek}  </div>
+<div class="cell">{$clientDetails.utworzono}  </div>
+<div class="cell"><a href="./maszyny.php?klientId={$clientDetails.id}">Pokaz maszyny</a></div>
+
+
+<h2>Nazwa pojazdu - {$vehicleDetails.nazwa}</h2>
+<hr>
+
+<div class="thead">
+    <div class="cell">identyfikator systemowy pojazdu</div>
+    <div class="cell">nazwa pojazdu</div>
+    <div class="cell">pojemnosc <sup>cm3</sup></div>
+    <div class="cell">numer rej </div>
+    <div class="cell">rok produkcji</div>
+    <div class="cell">identyfikator systemowy klienta</div>
+    <div class="cell">identyfikator typu pojzdu</div>
+</div>
+
+
+<div class="cell"><a href="./edit.php?id={$value.id}">{$vehicleDetails.id}</a></div>
+<div class="cell">{$vehicleDetails.nazwa}  </div>
+<div class="cell">{$vehicleDetails.pojemnosc}  </div>
+<div class="cell">{$vehicleDetails.numer_rejestracyjny}  </div>
+<div class="cell">{$vehicleDetails.rok_produkcji}  </div>
+<div class="cell">{$vehicleDetails.klient_id}  </div>
+<div class="cell">{function="(TypPojazduModel::getTypeNameByTypeId($vehicleDetails.pojazd_typ_id))"} / {$vehicleDetails.pojazd_typ_id}  </div>
+
+<h2>Historia napraw</h2><hr>
+<form action='' method='post'>
+    <br><fieldset style='class th: 450px;'>
+        <legend><b>Pokaz tylko naprawy: </b></legend>
+    
+    <input type="radio" name="kryterium" value="wszystkie"  {$checked_wszystkie} > Wszystkie 
+    <input type="radio" name="kryterium" value="trwajace"  {$checked_trwajace} > Trwajace 
+    <input type="radio" name="kryterium" value="zakonczone" {$checked_zakonczone}> Zakończone
+
+        <input type='submit' name='szukaj' value='Pokaz' />
+   </fieldset>
+  
+</form>
+<div id="accordion">
+    {loop="$repairs"}
+    <h2>{$counter +1} -Nazwa: {$value.nazwa} - data przyjecia: {$value.data_przyjecia} </h2>
+    <div>
+
+        <div class="thead">
+            <div class="cell">.id</div>
+            <div class="cell">.nazwa</div>   
+            <div class="cell">.opis</div>
+            <div class="cell">.data_przyjecia</div>
+            <div class="cell">.data_zdania</div>
+            <div class="cell">.przebieg</div>
+            <div class="cell">.klient_id</div>
+            <div class="cell">.pojazd_id</div>
+            <div class="cell">.akcja</div>
+            
+        </div>
+
+        <div class="row">
+            <div class="cell">{$value.id}</div>
+            <div class="cell">{$value.nazwa}</div>   
+            <div class="cell">{$value.opis}</div>
+            <div class="cell">{$value.data_przyjecia}</div>
+            <div class="cell">{$value.data_zdania}</div>
+            <div class="cell">{$value.przebieg}</div>
+            <div class="cell">{$value.klient_id}</div>
+            <div class="cell">{$value.pojazd_id}</div>
+            <div class="cell">
+                {if condition="$value.data_zdania == '0000.00.00 00:00:00' || is_null($value.data_zdania)"}<button class="zakonczNaprawe" id={$value.id}>Zakończ </button>{/if}
+                
+            </div>
+            
+            <!-- PETLA ZAGNIEZDZOA VALUE1 WSKAZUJE NA WARTOSC Z PIERWSZEJ PETLI -->
+        </div>
+        <h3>Pozycje naprawy</h3>
+        {loop="$repairsPositions"}
+        {if condition="$value1.id  == $value.naprawa_id "}
+        <div class="thead">
+            <div class="cell">id</div>
+            <div class="cell">nazwa</div>
+            <div class="cell">kwota</div>
+            <div class="cell">notatka</div>
+            <div class="cell">naprawa_id</div>
+        </div>
+        <div class="row">
+
+            <div class="cell">{$value.id}</div>
+            <div class="cell">{$value.nazwa}</div>
+            <div class="cell">{$value.kwota}</div>
+            <div class="cell">{$value.notatka}</div>
+            <div class="cell">{$value.naprawa_id}</div>
+        </div>
+        {/if}
+        {/loop}
+    </div>   
+    <!--wyjscie z petli zewnetrznej - po naprawwach-->
+    {/loop}
+
+
+
+    {*include external pattern sub-pages *}
+    {include="footer"}
+
+    {*eof*}

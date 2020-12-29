@@ -1,0 +1,75 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+
+<h2>Klient: {$clientDetails.imie} - {$clientDetails.nazwisko}</h2>
+<hr>
+
+<div class="thead">
+    <div class="cell">identyfikator systemowy klientam</div>
+    <div class="cell">imie</div>
+    <div class="cell">nazwisko</div>
+    <div class="cell">wiek</div>
+    <div class="cell">data utworzenia</div>
+    <div class="cell">maszyny</div>
+</div>	
+
+<div class="cell"><a href="./kartaKlienta.php?id={$clientDetails.id}">{$clientDetails.id}</a></div>
+<div class="cell">{$clientDetails.imie}  </div>
+<div class="cell">{$clientDetails.nazwisko}  </div>
+<div class="cell">{$clientDetails.wiek}  </div>
+<div class="cell">{$clientDetails.utworzono}  </div>
+<div class="cell"><a href="./maszyny.php?klientId={$clientDetails.id}">Pokaz maszyny</a></div>
+
+{if condition="$vehicles"}
+<div id="accordion">
+    {loop="$vehicles"}
+    <h2> Pojazd numer {$counter+1}- nazwa pojazdu: {$value.nazwa}</h2>
+    <div>
+        <div class="thead">
+            <div class="cell">id</div>
+            <div class="cell">nazwa</div>
+            <div class="cell">pojemnosc</div>
+            <div class="cell">rokProdukcji</div>
+            <div class="cell">klientId</div>
+            <div class="cell">Typ/Identyfkator typu</div>
+            <div class="cell">Pokaz naprawy</div>
+            <div class="cell">Rejestruj nową naprawę</div>
+        </div>	
+        <div class="row">
+            <div class="cell"><a href="./kartaPojazdu.php?vehicleId={$value.id}&clientId={$clientDetails.id}">{$value.id}</a></div>
+            <div class="cell">{$value.nazwa}  </div>
+            <div class="cell">{$value.pojemnosc}  </div>
+            <div class="cell">{$value.rok_produkcji}  </div>
+            <div class="cell">{$value.klient_id}  </div>
+            <div class="cell">{function="(TypPojazduModel::getTypeNameByTypeId($value.pojazd_typ_id))"} / {$value.pojazd_typ_id}</div>
+            <div class="cell">			<!--pojazdId/klientId-->
+                <!--                <button class="ajax" id={$value.id}/{$value.klient_id}>Naprawy </button>
+                                                      <div class="mes"></div>-->
+                <a href="./naprawy.php?pojazdId={$value.id}&klientId={$value.klient_id}">Karta napraw </a>
+            </div>
+            <div class="cell">
+<!--                <button class="ajax" id={$value.id}/{$value.klient_id}>Dodaj</button>-->
+<!--                <a href="./dodajnaprawe.php?pojazdId={$value.id}&klientId={$value.klient_id}">Rejestruj naprawe </a>-->
+                <form action="dodajnaprawe.php" method="post">
+                    <input id='klientId' type="text" name='klientId' value={$value.klient_id} hidden="true" />
+                    <input id='pojazdId' type="text" name='pojazdId' value={$value.id} hidden="true" />
+                    <input type='submit' name='napraawa' value='Nowa naprawa' />
+                </form>
+            </div> 
+          </div>	
+        </div>
+        {/loop}
+    </div>
+    {else}
+
+        <warning_message>Brak maszyn dla tego klienta</warning_message>
+        <info_message>Możesz dodać maszynę korzystając z linka: <a href="./dodajpojazd.php?clientId={$_GET['klientId']}">Dodaj nową maszynę</a></info_message>
+
+    {/if}
+
+    {*include external pattern sub-pages *}
+    {include="footer"}
+    {*eof*}

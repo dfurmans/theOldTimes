@@ -1,0 +1,95 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+<tt><b>{function="print_r($dataBaseTable)"} </b></tt>
+
+<div class="autotooltipcontainer" id="1">
+    Element reagujący na najechanie myszą
+    <div class="autotooltip-content" >(zawartość tooltipa)</div>
+</div>
+
+{include="find"}
+<form action='index.php'; method='post'>
+    <br><fieldset style='class th: 450px;'>
+        <legend><b>Wyrzukaj klienta</b></legend>
+        PO:            
+        <input type="radio" name="kryterium" value="Nazwisko"  {$checked_nazwisko} > Naziwsko 
+        <input type="radio" name="kryterium" value="Telefon" {$checked_telefon}> Telefon
+        <input type="radio" name="kryterium" value="Pesel" {$checked_pesel}> Pesel<br> 
+
+        <label for='wartosc'>Wartosc:</label>
+        <input class='' name='wartosc' value={$wartosc} >
+
+        <input type='submit' name='szukaj' value='Szukaj' />
+    </fieldset>
+    {* komentarz w trybie widoku *}
+
+</form>
+<button type="button" class="btnGetSelectedValue">GetSelectedValue</button><br />
+{if condition="$clients"}
+<div class="table">
+    <div class="thead">
+        <div class="cell">zaznacz</div>
+        <div class="cell">id</div>
+        <div class="cell">imie</div>
+        <div class="cell">nazwisko</div>
+        <div class="cell">wiek</div>
+        <div class="cell">utworzono</div>
+        <div class="cell">telefon</div>
+        <div class="cell">akcje</div>
+        <div class="cell">akcje dynamit</div>
+    </div>	
+    {loop="$clients"}
+    <div class="row">
+        <div class="cell"><input type="checkbox" value="{$value.id}" name="idclients[]" /></div>
+        <div class="cell"><a href="./kartaKlienta.php?id={$value.id}">{$value.id}</a></div>
+        <div class="cell">{$value.imie}  </div>
+        <div class="cell">{$value.nazwisko}  </div>
+        <div class="cell">{$value.wiek}  </div>
+        <div class="cell">{$value.utworzono}  </div>
+        <div class="cell">{$value.numer_telefonu}  </div>
+        <div class="cell">
+            <ul>
+                <li><a href="./maszyny.php?klientId={$value.id}">Pokaz maszyny</a></li>
+                <li><a href="./dodajpojazd.php?clientId={$value.id}">Dodaj nową maszynę</a></li>
+            </ul>
+        </div>
+        <div class="cell">
+            <span class="op" id={$value.id}>Akcje</span> 
+            <div id='menu' id={$value.id}>                         
+                <ul class='items'>                          
+                    <li class='closeMenu'>Close</li>
+                    <li id="1">Item1</li>                       
+                    <li>Item2</li>
+                    <li>Item3</li>
+                    <li>Item4</li>
+                    <li>Item5</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>	
+    {/loop}
+    {* end table div *}
+    {*Pagination contaxt*}		
+    {if="$num_page > 1"} 
+    <b>{function="pagainacja($sortuj, $current_page, $num_page)"}	</b>
+    {/if}
+</div>		
+
+
+{/if}	
+
+<!-- 
+        {$dane.id}
+        {$dane.imie}
+        {$dane.nazwisko}
+        {$dane.wiek}
+        {$dane.utworzono} 
+-->
+
+{*include external pattern sub-pages *}
+{include="footer"}
+{*eof*}

@@ -1,0 +1,38 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+
+<tt>Dodaj nowy pojazd </b></tt>
+
+<form action="" method="post">
+    <fieldset style='wclassth: 450px;'>
+        <legend>Dane nowego pojazdu</legend>
+
+        <label for='nazwa'>Nazwa</label>
+        <input id='nazwa' name='nazwa' />
+
+        <br><label for='pojemnosc'>pojemnosc:</label>
+        <input id='pojemnosc' type="text" name='pojemnosc' />
+        
+        <br><label for='numer_rejestracyjny'>numer_rejestracyjny:</label>
+        <input id='numer_rejestracyjny' type="text" name='numer_rejestracyjny' />
+        
+        <br><label for='rok_produkcji'>rok_produkcji:</label>
+        <input id='rok_produkcji' type="text" name='rok_produkcji' />
+
+        <br><label>Typ</label>
+            <select name=type_id>
+                {loop="$typypojazdow"}
+                    <option value='{$value.id}'{if="$value.id==$data.type_id"} selected{/if}>{$value.nazwa}</option>
+                {/loop}
+            </select>
+
+    </fieldset>
+    <br><input type='submit' name='dodaj' value='Dodaj nowy pojazd' />
+</form>
+
+{*include external pattern sub-pages *}
+{include="footer"}
+{*eof*}

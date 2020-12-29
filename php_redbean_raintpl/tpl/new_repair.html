@@ -1,0 +1,68 @@
+{* include external pattern sub-pages  *}
+<!-- Head -->	
+{include="header"}
+<!-- Navmenu -->
+{include="navmenu"}
+
+<tt>Rejestruj nowa naprawę dla:</br>
+    <info_message>Klient nazwisko: {$imieNazwisko}</info_message>
+    <info_message>Pojazd numer rej: {$numerRejestracyjny}</info_message>
+</tt>
+
+
+<form action="" method="post">
+    <fieldset style='wclassth: 450px;'>
+        <legend>Nowa naprawa</legend>
+
+        <input id='klientId' type="text" name='klientId' value={$_POST['klientId']} hidden="true" />
+        <input id='pojazdId' type="text" name='pojazdId' value={$_POST['pojazdId']} hidden="true" />
+        <label for='nazwa'>nazwa:</label>
+        <input id='nazwa' type="text" name='nazwa' />
+
+        <br><label for='opis'>opis:</label>
+        <textarea name="opis"></textarea>
+
+        <br><label for='przebieg'>przebieg:</label>
+        <input id='przebieg' type="text" name='przebieg' />
+
+        <br><label for='zaplacono'>Platnosc z góry</label>
+        <input id="zaplacono" type="checkbox" name="zaplacono"/>
+
+        <br><label for='wartosc'>Wartosc</label>
+        <input id="wartosc" type="text" name="wartosc"/>
+        <br><sup>Pozostale pola zapisasz sie automatycznie</sup>
+
+    </fieldset>
+    <br><input type='submit' name='dodaj' value='Rejestruj' />
+</form>
+
+
+
+
+
+{*include external pattern sub-pages *}
+{include="footer"}
+{*eof*}
+
+
+I. WYBIERZ KLIENTA
+
+AJAX
+<br>
+II. WYBIERZ LUB DODAJ MOTOCYKL
+
+AJAX
+<br>
+III. DODAJ OPIS NAPRAWY
+
+POST
+<br>
+IV. DRUKUJ POTWIERDZENIE
+
+
+POST
+
+<br>
+V. ZATWIERDZ
+
+POST
